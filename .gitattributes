@@ -1,0 +1,9 @@
+# Enforce LF for files that run on Linux / edge devices
+*.sh text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+Dockerfile text eol=lf
+
+# Docs can be platform-neutral
+*.md text
+.gitignore text
