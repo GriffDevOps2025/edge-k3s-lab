@@ -1,73 +1,109 @@
-# DevEdgeOps Edge K3s Lab
+DevEdgeOps Edge K3s Lab
 
-Portfolio-grade DevEdgeOps lab demonstrating edge computing principles with Kubernetes. This project mirrors real device-fleet edge-to-cloud platform responsibilities: resilient local compute at the edge, message routing under intermittent connectivity, and observability within tight resource constraints.
+Portfolio-grade DevEdgeOps lab demonstrating edge computing principles with Kubernetes. This project mirrors real device-fleet edge-to-cloud platform responsibilities: resilient local compute at the edge, operation under intermittent connectivity, and observability within tight resource constraints.
 
-## Purpose
+Purpose
 
-This lab focuses on edge computing constraints:
-- ARM64 architecture optimization
-- Low memory environments
-- Intermittent connectivity
-- Power loss resilience
-- Simple, explainable components
+This lab focuses on real-world edge computing constraints:
 
-## Target Deployment
+ARM64 architecture optimization
 
-- **Hardware**: Raspberry Pi (ARM64)
-- **OS**: Raspberry Pi OS Lite 64-bit (or Ubuntu Server ARM64)
-- **Kubernetes**: K3s (single-node, expandable to multi-node)
+Low memory environments
 
-## Phases
+Intermittent connectivity
 
-**Phase 1: Foundation**
-- K3s installation with edge tuning
-- Cluster validation checklist
-- Repository scaffolding
+Power loss and reboot resilience
 
-**Phase 2: Messaging**
-- Mosquitto MQTT broker
-- Persistence and QoS configuration
+Simple, explainable platform components
 
-**Phase 3: Workload**
-- Containerized Python service
-- MQTT publish/subscribe
-- Prometheus metrics endpoint
+Target Deployment
 
-**Phase 4: Observability**
-- Minimal Prometheus deployment
-- Targeted metric scraping
+Hardware: Raspberry Pi (ARM64)
 
-**Phase 5: Automation**
-- Build, deploy, and teardown automation
-- Repeatable workflows
+OS: Raspberry Pi OS Lite 64-bit (or Ubuntu Server ARM64)
 
-## Prerequisites
+Kubernetes: K3s (single-node in Phase 1, expandable to multi-node)
 
-- Raspberry Pi 3B+ or newer (2GB+ RAM recommended)
-- MicroSD card (16GB+ Class 10)
-- Network connectivity for initial setup
-- SSH access to the Pi
+Phases
+Phase 1: Foundation (Current)
 
-## Quick Start
+OS preparation and hardening for edge devices
 
-_Coming in Phase 1_
+Deterministic K3s installation with edge tuning
 
-## Documentation
+Cluster validation checklist
 
-- [Phase 1: Foundation](docs/phase1-foundation.md)
-- [Troubleshooting Guide](docs/troubleshooting.md)
+Guided failure-scenario testing (reboot, power loss, network isolation, memory pressure)
 
-## Project Structure
+Phase 2: Messaging
 
-```
+Mosquitto MQTT broker
+
+Persistence and QoS configuration
+
+Phase 3: Workload
+
+Containerized Python service
+
+MQTT publish/subscribe
+
+Prometheus metrics endpoint
+
+Phase 4: Observability
+
+Minimal Prometheus deployment
+
+Targeted metric scraping
+
+Phase 5: Automation
+
+Build, deploy, and teardown automation
+
+Repeatable workflows
+
+Prerequisites
+
+Raspberry Pi 3B+ or newer (2GB+ RAM recommended)
+
+MicroSD card (16GB+ Class 10)
+
+Network connectivity for initial setup
+
+SSH access to the Pi
+
+Quick Start (Phase 1)
+
+On a freshly installed Raspberry Pi OS Lite or Ubuntu Server:
+
+# 1. Prepare the OS for edge workloads
+sudo ./setup/os-prep-phase1.sh
+
+# 2. Install and configure K3s
+sudo ./setup/install-k3s.sh
+
+# 3. Validate the cluster baseline
+./scripts/validate-phase1.sh
+
+# 4. Run guided failure-scenario tests
+./scripts/failure-scenarios-phase1.sh
+
+
+Failure scenarios are guided and non-destructive. Reboot and power-loss tests require manual action and post-recovery validation.
+
+Documentation
+
+Phase 1: Foundation
+
+Troubleshooting Guide
+
+Project Structure
 edge-k3s-lab/
 ├── docs/          # Phase documentation
-├── setup/         # Installation and configuration scripts
+├── setup/         # OS prep and K3s installation scripts
 ├── k8s/           # Kubernetes manifests (organized by phase)
-├── scripts/       # Utility scripts
-└── tests/         # Failure scenario tests
-```
+├── scripts/       # Validation and failure-scenario scripts
+└── README.md
 
-## License
+License
 
 MIT
